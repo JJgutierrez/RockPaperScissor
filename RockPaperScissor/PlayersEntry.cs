@@ -7,78 +7,64 @@ using System.Threading;
 
 namespace RockPaperScissor
 {
-    interface IGetNames
+    interface IPlayersGames
     {
         string PlayerName1();
         string PlayerName2();
+        void RPSGame();
+        void RPSLSGame();
 
     }
    public  class PlayersEntry
     {
-        
-        public void Welcome()
-        {
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("*****************************************"+
-                             "\n***** ROCK **** PAPPER **** SCISSOR *****"+
-                            "\n*****************************************"+
-                            "\n*****************************************");
-        }
+        //string computer = "Computer";
+        //string playerName1 = "";
+        //string playerNmae2 = "";
 
         public string PlayerName1()
         {
-            Console.WriteLine("Please Enter Your Name:  ");
-            string name = Console.ReadLine();
-            return name;
+            Console.WriteLine(" **** Player 1 Please Enter Your Name:  ");
+            string playerName1 = Console.ReadLine().ToUpper();
+            return playerName1;
         }
         public string PlayerName2()
         {
-            Console.WriteLine("Please Enter Your Name:  ");
-            string name1 = Console.ReadLine();
-            return name1;
+            Console.WriteLine(" **** Player 2 Please Enter Your Name:  ");
+            string playerName2 = Console.ReadLine().ToUpper();
+            return playerName2;
         }
 
-
-        public void Choice()
+        public int GameChoiceScreen()
         {
-            Thread.Sleep(3000);
             Console.Clear();
+
+            Console.WriteLine("************************************************\n" +
+                              "**************** Make a Selection  : ***********\n" +
+                              "************************************************\n" +
+                              "************************************************\n" +
+                              "**************** 1 : Rock Paper Scissor ********\n" +
+                              "**************** 2 : RPS Spock Lizard **********\n" +
+                              "************************************************\n" +
+                              "***********************************************");
+            int gameChoises = int.Parse(Console.ReadLine());
+            return gameChoises;
+           
+        }
+        public int PlayerChoiceScreen()
+        { 
+            Console.Clear();
+
+            Console.WriteLine("************************************************\n" +
+                              "**************** Make a Selection  :  *********\n" +
+                              "************************************************\n" +
+                              "************************************************\n" +
+                              "**************** 1 : One player       **********\n" +
+                              "**************** 2 : Two Players      **********\n" +
+                              "************************************************\n" +
+                              "***********************************************");
+            int playerChoises = int.Parse(Console.ReadLine());
+            return playerChoises;
             
-            Console.WriteLine("****************************\n"+
-                              "***** Make a Selection  : **\n" +
-                              "*****1 : One Player ********\n" +
-                              "*****2 : Two Players *******\n"+
-                              "****************************");
-            string choises = Console.ReadLine();
-            int choise = int.Parse(choises);
-            try
-            {
-                switch (choise)
-                {
-                    case 1:
-                        
-                      
-                        break;
-                    case 2:
-                        
-                        break;
-                    
-                    default:
-                        Console.Clear();
-                        Console.WriteLine("No a Valid Option ..Try again!!");
-                        Choice();
-                        
-                        break;
-
-                }
-
-            }
-            catch
-            {
-
-
-            }
-
 
         }
     }

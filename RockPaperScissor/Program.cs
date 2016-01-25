@@ -8,12 +8,12 @@ namespace RockPaperScissor
 {
     class Program
     {
+        
         static void Main()
         {
-            PlayersEntry name = new PlayersEntry();
-            Compare fg = new Compare();
-            fg.ComparingResults(name.PlayerName1());
-            
+
+            GameSelection gm = new GameSelection();
+            gm.Game();
         }
     }
 }

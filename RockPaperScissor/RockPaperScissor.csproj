@@ -44,15 +44,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileWriterReader.cs" />
+    <Compile Include="GameSelection.cs" />
     <Compile Include="Paper.cs" />
+    <Compile Include="RPSLSGame.cs" />
+    <Compile Include="RulesText.cs" />
     <Compile Include="Scissors.cs" />
     <Compile Include="WriterAndReader.cs" />
     <Compile Include="PlayersEntry.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rock.cs" />
-    <Compile Include="Compare.cs" />
-    <Compile Include="SinglePlayer.cs" />
+    <Compile Include="RPSGame.cs" />
+    <Compile Include="PlayerChoice.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -11,33 +11,15 @@ namespace RockPaperScissor
 {
     class WriterAndReader
     {
-        string fileName = @"PlayersData.txt";
+        string fileName = "";
         public void Writer()
         {
-
-
-            if (File.Exists(fileName))
-            {
-                Dictionary<string, string> allPlayer = new Dictionary<string, string>();
-                using (var sr = new StreamReader(fileName))
-                {
-                    string line = null;
-
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                        // add the key and whatever it 
-                        // can read next as the value
-                        allPlayer.Add(line, sr.ReadLine());
-                    }
-
-                }
-            }
-            else
-            {
-                File.Create(fileName);
-
-
-            }
+            Console.WriteLine("enter name:");
+            fileName = Console.ReadLine(); 
+        }
+        public void print()
+        {
+            Console.WriteLine(fileName);
         }
     }
 }
