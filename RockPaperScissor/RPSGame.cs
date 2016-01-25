@@ -15,6 +15,7 @@ namespace RockPaperScissor
 
         internal int counterPlayer1 = 0;
         internal int counterPlayer2 = 0;
+        internal string path = @"PlayersData.txt";
 
         public void RPSLogic(string playerN1, string playerN2,int pcOrPlayer2, int rounds)
         {
@@ -100,23 +101,41 @@ namespace RockPaperScissor
                             Console.WriteLine("No a valid choice");
                             break;
                     }
+                    
 
                 }
                 catch { }
+            PrintScore(playerN1, playerN2);
         }
 
-    
-        //public void PrintScore()
-        //{
-        //    Console.WriteLine("{0} scores :  {1}", playerN1, counterPlayer1);
-        //    Console.WriteLine("{0} scores :  {1}", playerN2, counterPlayer2);
-        //    DisplayWins()
-        //    using (StreamWriter sw = File.AppendText(@"PlayerData.txt"))
-        //    {
-        //        sw.WriteLine(playerN1 + "scores :" + counterPlayer1);
-        //        sw.WriteLine(playerN2 + "scores :" + counterPlayer2);
 
-            //}
-       // }
+        public void PrintScore(string playerNameScore1, string playerNameScore2)
+        {
+            if (counterPlayer1 >= counterPlayer2)
+            {
+                DisplayWins(playerNameScore1);
+                DisplayLoss(playerNameScore2);
+                string winPhraseplayer = DisplayWins(playerNameScore1).ToString();
+                string[] appendText = { "{0} with {1}", winPhraseplayer , counterPlayer1.ToString() };
+                string appendText2 = appendText.ToString();
+                File.AppendAllText(path,appendText2);
+            }
+            else if (counterPlayer2>= counterPlayer1)
+            {
+                DisplayWins(playerNameScore2);
+                DisplayLoss(playerNameScore1);
+                string winPhraseplayer = DisplayWins(playerNameScore2).ToString();
+                string[] appendText = { "{0} with {1}", winPhraseplayer, counterPlayer2.ToString() };
+                string appendText2 = appendText.ToString();
+                File.AppendAllText(path,DisplayWins(playerNameScore2).ToString());
+            }
+            else
+            {
+                DisplayDraw();
+            }
+            
+            
+           
+        }
     }
 }

@@ -29,18 +29,20 @@ namespace RockPaperScissor
                         case 1:
                             {
                                 string playerName1 = pe.PlayerName1();
-                                Console.Write("How many rounds would you like to play.....");
+                                Console.Write("***How many rounds would you like to play.....");
                                 int rounds = int.Parse(Console.ReadLine());
                                 rps.RPSLogic(playerName1, computer, gh.ComputerChoiceRPS(), rounds);
+                                rps.PrintScore(playerName1, computer);
                             }
                             break;
                         case 2:
                             {
                                 string playerName1 = pe.PlayerName1();
                                 string playerName2 = pe.PlayerName2();
-                                Console.Write("How many rounds would you like to play.....");
+                                Console.Write("***How many rounds would you like to play.....");
                                 int rounds = int.Parse(Console.ReadLine());
                                 rps.RPSLogic(playerName1, playerName2, gh.UserChoiceRPS(playerName2), rounds);
+                                rps.PrintScore(playerName1, playerName2);
                             }
                             break;
                     }
@@ -51,19 +53,21 @@ namespace RockPaperScissor
                         case 1:
                             {
                                 string playerName1 = pe.PlayerName1();
-                                Console.Write("How many rounds would you like to play.....");
+                                Console.Write("***How many rounds would you like to play.....");
                                 int rounds = int.Parse(Console.ReadLine());
                                 rpsls.RPSLSLogic(playerName1, computer, gh.ComputerChoiceRPSLS(), rounds);
-                 
+                                rpsls.PrintScore(playerName1, computer);
+
                             }
                             break;
                         case 2:
                             {
                                 string playerName1 = pe.PlayerName1();
-                                string playerNmae2 = pe.PlayerName2();
-                                Console.Write("How many rounds would you like to play.....");
+                                string playerName2 = pe.PlayerName2();
+                                Console.Write("***How many rounds would you like to play.....");
                                 int rounds = int.Parse(Console.ReadLine());
-                                rpsls.RPSLSLogic(playerName1,playerNmae2, gh.UserChoiceRPSLS(playerNmae2), rounds);
+                                rpsls.RPSLSLogic(playerName1,playerName2, gh.UserChoiceRPSLS(playerName2), rounds);
+                                rpsls.PrintScore(playerName1, playerName2);
                             }
                             break;
                     }

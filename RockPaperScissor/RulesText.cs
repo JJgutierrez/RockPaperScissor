@@ -27,13 +27,16 @@ namespace RockPaperScissor
         {
             Console.WriteLine(dots + "\n**** No winners !\n{0} \n{1} \n{2}", dots, draw, dots);
         }
-        internal void DisplayWins(string playerName)
+        internal string[]  DisplayWins(string playerName)
         {
-            Console.WriteLine("**** The Winner is  {0} ...! \n{1}\n{2}", playerName);
+           string[] winPhrase = { "The winner is {0}", playerName };
+            return winPhrase;
         }
-        internal void DisplayLoss(string playerName2)
+        internal string[] DisplayLoss(string playerName2)
         {
-            Console.WriteLine(dots + "\n**** Sorry ..Better Luck Next Time... {0} ...!" + "\n" + dots, playerName2);
+            string[] losePhrase = { "The loser is {0}", playerName2 };
+            return losePhrase;
+
         }
     }
 }

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace RockPaperScissor
 {
-    class RPSLSGame: RulesText
+    class RPSLSGame : RulesText
     {
         Scissors scissors = new Scissors("Scissors");
         Rock rock = new Rock("Rock");
@@ -15,6 +16,7 @@ namespace RockPaperScissor
         string spock = "Spock";
         int counterPlayer1 = 0;
         int counterPlayer2 = 0;
+        string path = @"PlayersData.txt";
 
         public void RPSLSLogic(string playerN1, string playerN2, int pcOrPlayer2, int rounds)
         {
@@ -81,7 +83,7 @@ namespace RockPaperScissor
                                 counterPlayer2++;
                                 break;
                             case 5:
-                                Console.WriteLine("**** {0} chose: {1} \n**** Player2 {2} chose : {3}\n****{4}", playerN1, paper, playerN2, spock, paperSpock );
+                                Console.WriteLine("**** {0} chose: {1} \n**** Player2 {2} chose : {3}\n****{4}", playerN1, paper, playerN2, spock, paperSpock);
                                 Console.ReadLine();
                                 counterPlayer1++;
                                 break;
@@ -94,7 +96,7 @@ namespace RockPaperScissor
                         switch (pcOrPlayer2)
                         {
                             case 1:
-                                Console.WriteLine("***** Player{0} chose: {1} \n**** Player2 {2} chose :{3} \n****{4}", playerN1, scissors, playerN2, rock, rockScissors);
+                                Console.WriteLine("***** Player{0} chose: {1} \n**** Player2 {2} chose : {3} \n****{4}", playerN1, scissors, playerN2, rock, rockScissors);
                                 Console.ReadLine();
                                 counterPlayer2++;
                                 break;
@@ -105,7 +107,7 @@ namespace RockPaperScissor
                                 break;
                             case 3:
                                 DisplayDraw();
-                                Console.WriteLine("**** Player {0} chose: {1}\n**** Player2 {2} chose :{3}", playerN1, scissors, playerN2, scissors);
+                                Console.WriteLine("**** Player {0} chose: {1}\n**** Player2 {2} chose : {3}", playerN1, scissors, playerN2, scissors);
                                 Console.ReadLine();
                                 break;
                             case 4:
@@ -127,7 +129,7 @@ namespace RockPaperScissor
                         switch (pcOrPlayer2)
                         {
                             case 1:
-                                Console.WriteLine("***** Player{0} chose: {1} \n**** Player2 {2} chose :{3}  \n****{4}", playerN1, lizard, playerN2, rock, rockLizzard);
+                                Console.WriteLine("***** Player{0} chose: {1} \n**** Player2 {2} chose : {3}  \n****{4}", playerN1, lizard, playerN2, rock, rockLizzard);
                                 Console.ReadLine();
                                 counterPlayer2++;
                                 break;
@@ -137,7 +139,7 @@ namespace RockPaperScissor
                                 counterPlayer1++;
                                 break;
                             case 3:
-                                Console.WriteLine("**** Player {0} chose: {1}\n**** Player2 {2} chose :{3}  \n****{4}", playerN1, lizard, playerN2, scissors, scissorsLizard);
+                                Console.WriteLine("**** Player {0} chose: {1}\n**** Player2 {2} chose : {3}  \n****{4}", playerN1, lizard, playerN2, scissors, scissorsLizard);
                                 Console.ReadLine();
                                 break;
                             case 4:
@@ -165,7 +167,7 @@ namespace RockPaperScissor
                                 counterPlayer2++;
                                 break;
                             case 2:
-                                Console.WriteLine("**** Player {0} chose: {1}\n**** Player2 {2} chose : {3}  \n****{4}", playerN1, spock, playerN2, paper,paperSpock );
+                                Console.WriteLine("**** Player {0} chose: {1}\n**** Player2 {2} chose : {3}  \n****{4}", playerN1, spock, playerN2, paper, paperSpock);
                                 Console.ReadLine();
                                 counterPlayer1++;
                                 break;
@@ -185,14 +187,40 @@ namespace RockPaperScissor
                                 counterPlayer1++;
                                 break;
                             default:
-                                Console.WriteLine("No a valid choice");
+                                Console.WriteLine("**** No a valid choice");
                                 break;
                         }
                         break;
                     default:
-                        Console.WriteLine("No a valid choice");
+                        Console.WriteLine("**** No a valid choice");
                         break;
                 }
+
+        }
+        public void PrintScore(string playerNameScore1, string playerNameScore2)
+        {
+            if (counterPlayer1 >= counterPlayer2)
+            {
+                DisplayWins(playerNameScore1);
+                DisplayLoss(playerNameScore2);
+                string winPhraseplayer = DisplayWins(playerNameScore1).ToString();
+                string[] appendText = { "{0} with {1}", winPhraseplayer, counterPlayer1.ToString() };
+                string appendText2 = appendText.ToString();
+                File.AppendAllText(path, appendText2);
+            }
+            else if (counterPlayer2 >= counterPlayer1)
+            {
+                DisplayWins(playerNameScore2);
+                DisplayLoss(playerNameScore1);
+                string winPhraseplayer = DisplayWins(playerNameScore2).ToString();
+                string[] appendText = { "{0} with {1}", winPhraseplayer, counterPlayer2.ToString() };
+                string appendText2 = appendText.ToString();
+                File.AppendAllText(path, DisplayWins(playerNameScore2).ToString());
+            }
+            else
+            {
+                DisplayDraw();
+            }
         }
     }
 }

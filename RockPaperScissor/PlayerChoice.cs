@@ -13,6 +13,7 @@ namespace RockPaperScissor
         public void RPSoptions()
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("****************************************************\n"+
                               "****************************************************\n"+
                               "********************* Your Choices *****************\n"+

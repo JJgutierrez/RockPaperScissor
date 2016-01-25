@@ -17,10 +17,6 @@ namespace RockPaperScissor
     }
    public  class PlayersEntry
     {
-        //string computer = "Computer";
-        //string playerName1 = "";
-        //string playerNmae2 = "";
-
         public string PlayerName1()
         {
             Console.WriteLine(" **** Player 1 Please Enter Your Name:  ");
@@ -33,11 +29,10 @@ namespace RockPaperScissor
             string playerName2 = Console.ReadLine().ToUpper();
             return playerName2;
         }
-
         public int GameChoiceScreen()
         {
             Console.Clear();
-
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("************************************************\n" +
                               "**************** Make a Selection  : ***********\n" +
                               "************************************************\n" +
