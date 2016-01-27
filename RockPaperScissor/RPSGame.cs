@@ -76,7 +76,7 @@ namespace RockPaperScissor
                             switch (pcOrPlayer2)
                             {
                                 case 1:
-                                    Console.WriteLine("***** Player{0} chose: {1} \n**** Player2 {2} chose :{3} \n****{4}", playerN1, scissors, playerN2, rock, rockScissors);
+                                    Console.WriteLine("**** Player{0} chose: {1} \n**** Player2 {2} chose :{3} \n****{4}", playerN1, scissors, playerN2, rock, rockScissors);
                                     Console.ReadLine();
                                     counterPlayer2++;
                                     break;
@@ -105,7 +105,7 @@ namespace RockPaperScissor
 
                 }
                 catch { }
-            PrintScore(playerN1, playerN2);
+         
         }
 
 
@@ -113,21 +113,24 @@ namespace RockPaperScissor
         {
             if (counterPlayer1 >= counterPlayer2)
             {
-                DisplayWins(playerNameScore1);
-                DisplayLoss(playerNameScore2);
-                string winPhraseplayer = DisplayWins(playerNameScore1).ToString();
-                string[] appendText = { "{0} with {1}", winPhraseplayer , counterPlayer1.ToString() };
-                string appendText2 = appendText.ToString();
-                File.AppendAllText(path,appendText2);
+                Console.WriteLine("{0}  {1}", DisplayWins(), playerNameScore1);
+                Console.WriteLine("{0}  {1}", DisplayLoss(), playerNameScore2);
+
+                string winPhraseplayer = DisplayWins();
+                string appendText = String.Join(" \n",playerNameScore1, counterPlayer1);
+            
+                File.WriteAllText(path, appendText);
             }
             else if (counterPlayer2>= counterPlayer1)
             {
-                DisplayWins(playerNameScore2);
-                DisplayLoss(playerNameScore1);
-                string winPhraseplayer = DisplayWins(playerNameScore2).ToString();
-                string[] appendText = { "{0} with {1}", winPhraseplayer, counterPlayer2.ToString() };
-                string appendText2 = appendText.ToString();
-                File.AppendAllText(path,DisplayWins(playerNameScore2).ToString());
+                Console.WriteLine("{0}  {1}", DisplayWins(), playerNameScore2);
+                Console.WriteLine("{0}  {1}", DisplayLoss(), playerNameScore1);
+
+                string winPhraseplayer = DisplayWins();
+                string appendText = String.Join(" \n", playerNameScore1, counterPlayer2);
+      
+                File.WriteAllText(path, appendText);
+                
             }
             else
             {

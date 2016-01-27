@@ -96,27 +96,27 @@ namespace RockPaperScissor
                         switch (pcOrPlayer2)
                         {
                             case 1:
-                                Console.WriteLine("***** Player{0} chose: {1} \n**** Player2 {2} chose : {3} \n****{4}", playerN1, scissors, playerN2, rock, rockScissors);
+                                Console.WriteLine("**** Player{0} chose: {1} \n**** Player2 {2} chose : {3} \n****{4}", playerN1, scissors, playerN2, rock, rockScissors);
                                 Console.ReadLine();
                                 counterPlayer2++;
                                 break;
                             case 2:
-                                Console.WriteLine("**** Player {0} chose: {1}\n**** Player2 {2} chose : {3} \n****{4}", playerN1, scissors, playerN2, paper, scissorsPaper);
+                                Console.WriteLine("**** Player {0} chose: {1} \n**** Player2 {2} chose : {3} \n****{4}", playerN1, scissors, playerN2, paper, scissorsPaper);
                                 Console.ReadLine();
                                 counterPlayer1++;
                                 break;
                             case 3:
                                 DisplayDraw();
-                                Console.WriteLine("**** Player {0} chose: {1}\n**** Player2 {2} chose : {3}", playerN1, scissors, playerN2, scissors);
+                                Console.WriteLine("**** Player {0} chose: {1} \n**** Player2 {2} chose : {3}", playerN1, scissors, playerN2, scissors);
                                 Console.ReadLine();
                                 break;
                             case 4:
-                                Console.WriteLine("**** {0} chose: {1} \n**** Player2 {2} chose : {3} \n****{4}", playerN1, scissors, playerN2, lizard, scissorsLizard);
+                                Console.WriteLine("**** {0} chose: {1} \n**** Player2 {2} chose : {3} \n**** {4}", playerN1, scissors, playerN2, lizard, scissorsLizard);
                                 Console.ReadLine();
                                 counterPlayer1++;
                                 break;
                             case 5:
-                                Console.WriteLine("**** {0} chose: {1} \n**** Player2 {2} chose : {3} \n****{4}", playerN1, scissors, playerN2, spock, spockScissors);
+                                Console.WriteLine("**** {0} chose: {1} \n**** Player2 {2} chose : {3} \n**** {4}", playerN1, scissors, playerN2, spock, spockScissors);
                                 Console.ReadLine();
                                 counterPlayer1++;
                                 break;
@@ -129,7 +129,7 @@ namespace RockPaperScissor
                         switch (pcOrPlayer2)
                         {
                             case 1:
-                                Console.WriteLine("***** Player{0} chose: {1} \n**** Player2 {2} chose : {3}  \n****{4}", playerN1, lizard, playerN2, rock, rockLizzard);
+                                Console.WriteLine("**** Player{0} chose: {1} \n**** Player2 {2} chose : {3}  \n****{4}", playerN1, lizard, playerN2, rock, rockLizzard);
                                 Console.ReadLine();
                                 counterPlayer2++;
                                 break;
@@ -139,7 +139,7 @@ namespace RockPaperScissor
                                 counterPlayer1++;
                                 break;
                             case 3:
-                                Console.WriteLine("**** Player {0} chose: {1}\n**** Player2 {2} chose : {3}  \n****{4}", playerN1, lizard, playerN2, scissors, scissorsLizard);
+                                Console.WriteLine("**** Player {0} chose: {1} \n**** Player2 {2} chose : {3}  \n****{4}", playerN1, lizard, playerN2, scissors, scissorsLizard);
                                 Console.ReadLine();
                                 break;
                             case 4:
@@ -162,7 +162,7 @@ namespace RockPaperScissor
                         switch (pcOrPlayer2)
                         {
                             case 1:
-                                Console.WriteLine("***** Player{0} chose: {1} \n**** Player2 {2} chose :{3}  \n****{4}", playerN1, spock, playerN2, rock, spockRock);
+                                Console.WriteLine("**** Player{0} chose: {1} \n**** Player2 {2} chose :{3}  \n****{4}", playerN1, spock, playerN2, rock, spockRock);
                                 Console.ReadLine();
                                 counterPlayer2++;
                                 break;
@@ -201,21 +201,23 @@ namespace RockPaperScissor
         {
             if (counterPlayer1 >= counterPlayer2)
             {
-                DisplayWins(playerNameScore1);
-                DisplayLoss(playerNameScore2);
-                string winPhraseplayer = DisplayWins(playerNameScore1).ToString();
-                string[] appendText = { "{0} with {1}", winPhraseplayer, counterPlayer1.ToString() };
-                string appendText2 = appendText.ToString();
-                File.AppendAllText(path, appendText2);
+                Console.WriteLine("{0}  {1}", DisplayWins(), playerNameScore1);
+                Console.WriteLine("{0}  {1}",  DisplayLoss(), playerNameScore2);
+                
+                string winPhraseplayer = DisplayWins();
+                string appendText = String.Join(" \n", playerNameScore1, counterPlayer1);
+            
+                File.AppendAllText(path, appendText);
             }
             else if (counterPlayer2 >= counterPlayer1)
             {
-                DisplayWins(playerNameScore2);
-                DisplayLoss(playerNameScore1);
-                string winPhraseplayer = DisplayWins(playerNameScore2).ToString();
-                string[] appendText = { "{0} with {1}", winPhraseplayer, counterPlayer2.ToString() };
-                string appendText2 = appendText.ToString();
-                File.AppendAllText(path, DisplayWins(playerNameScore2).ToString());
+                Console.WriteLine("{0}  {1}", DisplayWins(), playerNameScore2);
+                Console.WriteLine("{0}  {1}", DisplayLoss(), playerNameScore1);
+
+                string winPhraseplayer = DisplayWins();
+                string appendText = String.Join(" \n", playerNameScore2, counterPlayer2);
+              
+                File.AppendAllText(path, appendText);
             }
             else
             {

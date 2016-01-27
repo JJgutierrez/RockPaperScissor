@@ -29,7 +29,7 @@ namespace RockPaperScissor
                         case 1:
                             {
                                 string playerName1 = pe.PlayerName1();
-                                Console.Write("***How many rounds would you like to play.....");
+                                Console.WriteLine("**** How many rounds would you like to play.....");
                                 int rounds = int.Parse(Console.ReadLine());
                                 rps.RPSLogic(playerName1, computer, gh.ComputerChoiceRPS(), rounds);
                                 rps.PrintScore(playerName1, computer);
@@ -39,7 +39,7 @@ namespace RockPaperScissor
                             {
                                 string playerName1 = pe.PlayerName1();
                                 string playerName2 = pe.PlayerName2();
-                                Console.Write("***How many rounds would you like to play.....");
+                                Console.Write("**** How many rounds would you like to play.....");
                                 int rounds = int.Parse(Console.ReadLine());
                                 rps.RPSLogic(playerName1, playerName2, gh.UserChoiceRPS(playerName2), rounds);
                                 rps.PrintScore(playerName1, playerName2);
@@ -53,7 +53,7 @@ namespace RockPaperScissor
                         case 1:
                             {
                                 string playerName1 = pe.PlayerName1();
-                                Console.Write("***How many rounds would you like to play.....");
+                                Console.Write("**** How many rounds would you like to play.....");
                                 int rounds = int.Parse(Console.ReadLine());
                                 rpsls.RPSLSLogic(playerName1, computer, gh.ComputerChoiceRPSLS(), rounds);
                                 rpsls.PrintScore(playerName1, computer);
@@ -64,7 +64,7 @@ namespace RockPaperScissor
                             {
                                 string playerName1 = pe.PlayerName1();
                                 string playerName2 = pe.PlayerName2();
-                                Console.Write("***How many rounds would you like to play.....");
+                                Console.Write("**** How many rounds would you like to play.....");
                                 int rounds = int.Parse(Console.ReadLine());
                                 rpsls.RPSLSLogic(playerName1,playerName2, gh.UserChoiceRPSLS(playerName2), rounds);
                                 rpsls.PrintScore(playerName1, playerName2);

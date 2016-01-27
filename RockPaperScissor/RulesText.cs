@@ -8,13 +8,13 @@ namespace RockPaperScissor
 {
     class RulesText
     {
-        internal string rockLizzard = "Rock crushes Lizard ******";
-        internal string lizardSpock = "Lizard poisons Spock ******";
-        internal string spockScissors = "Spock smashes Scissors ******";
-        internal string scissorsLizard = "Scissors decapitates Lizard ******";
-        internal string lizardPaper = "Lizard eats Paper ******";
-        internal string paperSpock = "Paper disproves Spock ******";
-        internal string spockRock = "Spock vaporizes Rock ******";
+        internal string rockLizzard = " Rock crushes Lizard ******";
+        internal string lizardSpock = " Lizard poisons Spock ******";
+        internal string spockScissors = " Spock smashes Scissors ******";
+        internal string scissorsLizard = " Scissors decapitates Lizard ******";
+        internal string lizardPaper = " Lizard eats Paper ******";
+        internal string paperSpock = " Paper disproves Spock ******";
+        internal string spockRock = " Spock vaporizes Rock ******";
         internal string sheldonRockscissors = "(and as it always has) Rock crushes Scissors ******";
 
         internal string dots = "*****************************************";
@@ -27,15 +27,16 @@ namespace RockPaperScissor
         {
             Console.WriteLine(dots + "\n**** No winners !\n{0} \n{1} \n{2}", dots, draw, dots);
         }
-        internal string[]  DisplayWins(string playerName)
+        internal string DisplayWins()
         {
-           string[] winPhrase = { "The winner is {0}", playerName };
+           
+            string winPhrase =("**** The Winner is :");
             return winPhrase;
         }
-        internal string[] DisplayLoss(string playerName2)
+        internal string DisplayLoss()
         {
-            string[] losePhrase = { "The loser is {0}", playerName2 };
-            return losePhrase;
+            string loPhrase = "**** Better Luck Next Time ****";
+            return loPhrase;
 
         }
     }
